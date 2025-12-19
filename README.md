@@ -8,9 +8,6 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
 ### Dark Mode
 ![PrintWatch Dark Mode](assets/dark-mode-min.png)  
 
-### German Example
-![PrintWatch Nord](assets/german.png)
-
 ## Features
 
 - 🎥 Live camera feed
@@ -26,8 +23,10 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
 - 🌡️ Real-time temperature monitoring and control for bed and nozzle
 - 📷 G-Code preview image (requires HA Bambu Lab plugin update)
 - 🏷️ Display print weight and length details
--🌍 Localization support (initial translations in German, more contributions welcome!)
-pa
+- 🌍 Localization support:
+  - English
+  - Russian
+  - Germany
 ## Prerequisites
 
 - Home Assistant
