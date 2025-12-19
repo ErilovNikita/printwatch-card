@@ -3,77 +3,77 @@
     "sensor": {
       "state": {
         "idle": "Inaktiv",
-        "printing": "Udskriver",
+        "printing": "Druckt",
         "prepare": "Vorbereitung",
-        "paused": "Pauset",
-        "complete": "Fuldført",
+        "paused": "Pausiert",
+        "complete": "Abgeschlossen",
         "offline": "Offline",
-        "failed" : "Fehlgeschlagen",
-        "unknown": "Ukendt",
-        "running": "Kører",
-        "finish": "Afsluttet"
+        "failed": "Fehlgeschlagen",
+        "unknown": "Unbekannt",
+        "running": "Läuft",
+        "finish": "Beendet"
       }
     }
   },
   "ui": {
     "card": {
       "printwatch": {
-        "not_printing": "Udskriver ikke i øjeblikket",
-        "last_print": "Sidste udskrift: {name}",
-        "printer_offline": "Printer offline",
-        "camera_unavailable": "Kamera ikke tilgængeligt",
+        "not_printing": "Derzeit kein Druckvorgang",
+        "last_print": "Letzter Druck: {name}",
+        "printer_offline": "Drucker offline",
+        "camera_unavailable": "Kamera nicht verfügbar",
         "time": {
-          "complete": "Fuldført",
-          "left": "Tilbage",
-          "hours": "t",
+          "complete": "Fertig",
+          "left": "Verbleibend",
+          "hours": "h",
           "minutes": "m"
         },
         "print": {
-          "layer": "Lag",
-          "progress": "Fremskridt",
-          "weight": "Vægt",
-          "length": "Længde"
+          "layer": "Schicht",
+          "progress": "Fortschritt",
+          "weight": "Gewicht",
+          "length": "Länge"
         },
         "temperatures": {
-          "bed": "Printplade",
-          "nozzle": "Dyse",
-          "speed": "Hastighed",
-          "bed_target": "Indstil pladetemperatur",
-          "nozzle_target": "Indstil dysetemperatur",
-          "speed_profile": "Indstil printhastighed",
-          "range": "Område: {min}°C - {max}°C"
+          "bed": "Druckbett",
+          "nozzle": "Düse",
+          "speed": "Geschwindigkeit",
+          "bed_target": "Druckbetttemperatur einstellen",
+          "nozzle_target": "Düsentemperatur einstellen",
+          "speed_profile": "Druckgeschwindigkeit einstellen",
+          "range": "Bereich: {min}°C – {max}°C"
         },
         "controls": {
           "pause": "Pause",
-          "resume": "Genoptag",
-          "stop": "Stop",
-          "cancel": "Annuller",
-          "save": "Gem"
+          "resume": "Fortsetzen",
+          "stop": "Stoppen",
+          "cancel": "Abbrechen",
+          "save": "Speichern"
         },
         "speed_profiles": {
-          "silent": "Støjsvag",
+          "silent": "Leise",
           "standard": "Standard",
           "sport": "Sport",
-          "ludicrous": "Ekstrem"
+          "ludicrous": "Extrem"
         },
         "dialogs": {
           "pause": {
-            "title": "Bekræft pause",
-            "message": "Er du sikker på, at du vil pause udskriften? Dette kan påvirke kvaliteten.",
-            "confirm": "Bekræft"
+            "title": "Pause bestätigen",
+            "message": "Möchten Sie den aktuellen Druck wirklich pausieren? Dies kann die Druckqualität beeinträchtigen.",
+            "confirm": "Bestätigen"
           },
           "stop": {
-            "title": "Bekræft stop",
-            "message": "Er du sikker på, at du vil stoppe udskriften? Denne handling kan ikke fortrydes.",
-            "confirm": "Stop udskrift"
+            "title": "Stopp bestätigen",
+            "message": "Möchten Sie den aktuellen Druck wirklich stoppen? Diese Aktion kann nicht rückgängig gemacht werden.",
+            "confirm": "Druck stoppen"
           }
         },
         "materials": {
-          "empty": "Tom",
-          "unknown": "Ukendt",
-          "external_spool": "Ekstern spole"
+          "empty": "Leer",
+          "unknown": "Unbekannt",
+          "external_spool": "Externe Spule"
         }
       }
     }
   }
-} 
+}
