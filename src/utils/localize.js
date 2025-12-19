@@ -122,9 +122,12 @@ export class Localize {
     const hass = document.querySelector('home-assistant')?.hass;
     if (!hass) return this._fallbackLang;
 
+  
     // Home Assistant exposes language in different places depending on version/context.
     // Prefer `hass.locale.language` (used elsewhere in this repo), then `hass.language`.
-    return hass.locale?.language ? hass.locale.language : this._fallbackLang;
+    const _currentLang = hass.locale?.language ? hass.locale.language : this._fallbackLan;
+    console.log(`Found page language: ${_currentLang}`);
+    return _currentLang;
   }
 
   /**
