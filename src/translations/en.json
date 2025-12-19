@@ -4,6 +4,7 @@
       "state": {
         "idle": "Idle",
         "printing": "Printing",
+        "prepare": "Preparing",
         "paused": "Paused",
         "complete": "Complete",
         "offline": "Offline",

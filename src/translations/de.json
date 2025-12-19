@@ -4,6 +4,7 @@
       "state": {
         "idle": "Bereit",
         "printing": "Druckt",
+        "prepare": "Vorbereitung",
         "paused": "Pausiert",
         "complete": "Fertig",
         "offline": "Offline",

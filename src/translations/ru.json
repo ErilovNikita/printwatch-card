@@ -4,6 +4,7 @@
       "state": {
         "idle": "Ожидание",
         "printing": "Печать",
+        "prepare": "Подготовка",
         "paused": "Пауза",
         "complete": "Завершено",
         "offline": "Не в сети",
