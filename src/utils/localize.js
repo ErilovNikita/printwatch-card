@@ -124,7 +124,7 @@ export class Localize {
 
     // Home Assistant exposes language in different places depending on version/context.
     // Prefer `hass.locale.language` (used elsewhere in this repo), then `hass.language`.
-    return hass.locale?.language || hass.language || this._fallbackLang;
+    return hass.locale?.language ? hass.locale.language : this._fallbackLang;
   }
 
   /**
