@@ -152,7 +152,7 @@ export class Localize {
 
     // Return key if no translation found
     if (translated === undefined) {
-      console.warn(`No translation found for key: ${key}`);
+      console.warn(`[${this.language}] No translation found for key: ${key}`);
       return key;
     }
 
