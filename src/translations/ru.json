@@ -11,7 +11,11 @@
         "failed" : "Ошибка",
         "unknown": "Неизвестно",
         "running": "В процессе",
-        "finish": "Завершено"
+        "finish": "Завершено",
+        "calibrating_extrusion": "Калибровка экструзии",
+        "sweeping_xy_mech_mode": "Калибровка осей XY",
+        "cleaning_nozzle_tip": "Очистка сопла",
+        "auto_bed_leveling": "Калибровка стола"
       }
     }
   },

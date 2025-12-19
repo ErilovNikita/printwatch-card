@@ -11,7 +11,11 @@
         "failed" : "Mislykket",
         "unknown": "Ukendt",
         "running": "Kører",
-        "finish": "Afsluttet"
+        "finish": "Afsluttet",
+        "calibrating_extrusion": "Kalibrering af ekstrusion",
+        "sweeping_xy_mech_mode": "Kalibrering af XY-akser",
+        "cleaning_nozzle_tip": "Rengøring af dysen",
+        "auto_bed_leveling": "Tabelkalibrering"
       }
     }
   },

@@ -11,7 +11,11 @@
         "failed": "Fehlgeschlagen",
         "unknown": "Unbekannt",
         "running": "Läuft",
-        "finish": "Beendet"
+        "finish": "Beendet",
+        "calibrating_extrusion": "Kalibrierung der Extrusion",
+        "sweeping_xy_mech_mode": "Kalibrierung der XY-Achsen",
+        "cleaning_nozzle_tip": "Reinigung der Düse",
+        "auto_bed_leveling": "TTischkalibration"
       }
     }
   },
