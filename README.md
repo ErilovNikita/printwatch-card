@@ -97,6 +97,7 @@ pause_button_entity: button.p1s_pause_printing
 resume_button_entity: button.p1s_resume_printing
 stop_button_entity: button.p1s_stop_printing
 chamber_light_entity: light.p1s_chamber_light
+online_entity: binary_sensor.p1s_online
 aux_fan_entity: fan.p1s_aux_fan
 print_weight_entity: sensor.p1s_print_weight
 print_length_entity: sensor.p1s_print_length
@@ -114,6 +115,7 @@ print_length_entity: sensor.p1s_print_length
 2. **Camera feed not updating**
    - Ensure camera entity is properly configured
    - Check that image updates are enabled in HA
+   - Check that the `online_entity` field in the card is filled in
    - You must toggle on "use image sensor camera" in the ha-bambulab plugin
 
 ![Image Screenshot](assets/image-toggle.png)
