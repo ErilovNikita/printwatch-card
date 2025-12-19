@@ -17,7 +17,7 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
 
   if (isHaCamera) {
     const stateObj = hass?.states?.[cameraEntity];
-    
+
     if (!stateObj) {
       return html`
         <div class="offline-message">
@@ -39,20 +39,18 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
         ></ha-camera-stream>
       </div>
     `;
+  } else {
+    return html`
+      <div class="camera-feed">
+        <div class="camera-label">${currentStage}</div>
+        <img
+          src="${entityPicture}"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+          alt="Camera Feed"
+          @error=${onError}
+          @load=${onLoad}
+        />
+      </div>
+    `;
   }
-
-  // Fallback to still image (e.g., image.* entities)
-
-  return html`
-    <div class="camera-feed">
-      <div class="camera-label">${currentStage}</div>
-      <img
-        src="${entityPicture}"
-        style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-        alt="Camera Feed"
-        @error=${onError}
-        @load=${onLoad}
-      />
-    </div>
-  `;
 };
