@@ -35,6 +35,7 @@ class PrintWatchCard extends LitElement {
       formatDuration,
       formatEndTime
     };
+    this._hassLang = '';
   }
 
   setConfig(config) {
@@ -91,6 +92,16 @@ class PrintWatchCard extends LitElement {
   updated(changedProps) {
     super.updated(changedProps);
     if (changedProps.has('hass')) {
+      // Detect language changes from Home Assistant and trigger re-render
+      const rawLang = this.hass?.locale?.language || this.hass?.language || '';
+      const newLang = rawLang ? String(rawLang).split(/[-_]/)[0].toLowerCase() : '';
+      if (newLang && newLang !== this._hassLang) {
+        this._hassLang = newLang;
+        // Force update so templates that call `localize.t()` re-evaluate
+        this.requestUpdate();
+        console.debug('printwatch-card: locale changed to', newLang);
+      }
+
       if (this.shouldUpdateCamera()) {
         this._updateCameraFeed();
       }
