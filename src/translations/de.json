@@ -8,6 +8,7 @@
         "paused": "Pauset",
         "complete": "Fuldført",
         "offline": "Offline",
+        "failed" : "Fehlgeschlagen",
         "unknown": "Ukendt",
         "running": "Kører",
         "finish": "Afsluttet"

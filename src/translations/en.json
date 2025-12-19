@@ -8,6 +8,7 @@
         "paused": "Paused",
         "complete": "Complete",
         "offline": "Offline",
+        "failed" : "Failed",
         "unknown": "Unknown",
         "running": "Running",
         "finish": "Finished"
