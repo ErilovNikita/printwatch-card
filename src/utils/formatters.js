@@ -1,3 +1,5 @@
+import { localize } from './localize';
+
 /**
  * Format remaining time duration into human readable format
  * @param {number} minutes - Duration in minutes
