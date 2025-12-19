@@ -29,7 +29,7 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
 
     return html`
       <div class="camera-feed">
-        <div class="camera-label">${currentStage}</div>
+        <div class="camera-label">${localize.localize(`entity.sensor.state.${currentStage}`)}</div>
         <ha-camera-stream
           .hass=${hass}
           .stateObj=${stateObj}
@@ -42,7 +42,7 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
   } else {
     return html`
       <div class="camera-feed">
-        <div class="camera-label">${currentStage}</div>
+        <div class="camera-label">${localize.localize(`entity.sensor.state.${currentStage}`)}</div>
         <img
           src="${entityPicture}"
           style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
