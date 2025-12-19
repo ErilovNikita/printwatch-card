@@ -70,13 +70,16 @@ class PrintWatchCard extends LitElement {
   }
 
   _toggleLight() {
-    const lightEntity = this.hass.states[this.config.chamber_light_entity];
-    if (!lightEntity) return;
+    const entityId = this.config?.chamber_light_entity;
+    if (!entityId) return;
 
-    const service = lightEntity.state === 'on' ? 'turn_off' : 'turn_on';
-    this.hass.callService('light', service, {
-      entity_id: this.config.chamber_light_entity,
-    });
+    const entity = this.hass.states[entityId];
+    if (!entity) return;
+
+    // Determine domain (e.g., 'light', 'switch') from entity id
+    const domain = String(entityId).split('.')[0];
+    const serviceAction = entity.state === 'on' ? 'turn_off' : 'turn_on';
+    this.hass.callService(domain, serviceAction, { entity_id: entityId });
   }
 
   _toggleFan() {
