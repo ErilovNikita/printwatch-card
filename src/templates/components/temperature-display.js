@@ -72,8 +72,7 @@ export const temperatureDisplayTemplate = (entities, hass, dialogConfig = {}, se
         @click=${() => handleControlClick('speed', hass.states[entities.speed_profile_entity]?.state || 'standard', entities.speed_profile_entity)}
       >
         <div class="temp-value">
-          ${(hass.states[entities.speed_profile_entity]?.state || 'standard').charAt(0).toUpperCase() + 
-            (hass.states[entities.speed_profile_entity]?.state || 'standard').slice(1)}
+          ${localize.localize(`ui.card.printwatch.speed_profiles.${hass.states[entities.speed_profile_entity]?.state || 'standard'}`)}
         </div>
         <div>${localize.t('temperatures.speed')}</div>
       </div>
