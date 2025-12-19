@@ -55,10 +55,10 @@
           "save": "Сохранить"
         },
         "speed_profiles": {
-          "silent": "Тихий",
-          "standard": "Стандартный",
-          "sport": "Спортивный",
-          "ludicrous": "Экстремальный"
+          "silent": "Тихо",
+          "standard": "Стандарт",
+          "sport": "Спорт",
+          "ludicrous": "Турбо"
         },
         "dialogs": {
           "pause": {
