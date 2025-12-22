@@ -12,7 +12,10 @@
         "unknown": "Unknown",
         "running": "Running",
         "finish": "Finished",
-        "calibrating_extrusion": "Calibrating Extrusion",
+        "filament_loading" : "Filament loading",
+        "homing_toolhead" : "Homing toolhead",
+        "heatbed_preheating" : "Heatbed Preheating",
+        "calibrating_extrusion": "Calibrating extrusion",
         "sweeping_xy_mech_mode": "Calibration of the XY axes",
         "cleaning_nozzle_tip": "Cleaning the nozzle",
         "auto_bed_leveling": "Table calibration"
