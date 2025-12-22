@@ -73,7 +73,6 @@ export const cardStyles = css`
     color: var(--state-active-color);
     font-size: 16px;
     font-weight: 500;
-    text-transform: capitalize;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -153,7 +152,6 @@ export const cardStyles = css`
     border-radius: 8px;
     font-size: 16px;
     background-color: color-mix(in srgb, var(--card-background-color) 80%, transparent);
-    text-transform: capitalize;
   }
 
   /* Print Status */
