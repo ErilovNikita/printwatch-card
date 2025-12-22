@@ -61,7 +61,8 @@
           "silent": "Leise",
           "standard": "Standard",
           "sport": "Sport",
-          "ludicrous": "Extrem"
+          "ludicrous": "Extrem",
+          "unavailable" : "Nicht verfügbar"
         },
         "dialogs": {
           "pause": {

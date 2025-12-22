@@ -61,7 +61,8 @@
           "silent": "Тихо",
           "standard": "Стандарт",
           "sport": "Спорт",
-          "ludicrous": "Турбо"
+          "ludicrous": "Турбо",
+          "unavailable" : "Недоступно"
         },
         "dialogs": {
           "pause": {

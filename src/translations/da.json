@@ -61,7 +61,8 @@
           "silent": "Støjsvag",
           "standard": "Standard",
           "sport": "Sport",
-          "ludicrous": "Ekstrem"
+          "ludicrous": "Ekstrem",
+          "unavailable" : "Ikke tilgængelig"
         },
         "dialogs": {
           "pause": {

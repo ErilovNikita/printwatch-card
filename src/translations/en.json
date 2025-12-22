@@ -61,7 +61,8 @@
           "silent": "Silent",
           "standard": "Standard",
           "sport": "Sport",
-          "ludicrous": "Ludicrous"
+          "ludicrous": "Ludicrous",
+          "unavailable" : "Unavailable"
         },
         "dialogs": {
           "pause": {
