@@ -53,12 +53,14 @@ export const printStatusTemplate = (entities, config) => {
                 localize.t('controls.resume') : 
                 localize.t('controls.pause')}
             </button>
-            <button 
-              class="btn btn-stop"
-              @click=${config.onStop}
-            >
-              ${localize.t('controls.stop')}
-            </button>
+            ${entities.stop_button_entity ? html`
+              <button 
+                class="btn btn-stop"
+                @click=${config.onStop}
+              >
+                ${localize.t('controls.stop')}
+              </button>
+            ` : ''}
           </div>
         </div>
       </div>
