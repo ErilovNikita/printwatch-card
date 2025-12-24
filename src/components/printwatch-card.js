@@ -4,7 +4,7 @@ import { cardTemplate } from '../templates/card-template';
 import { cardStyles } from '../styles/card-styles';
 import { formatDuration, formatEndTime } from '../utils/formatters';
 import { isPrinting, isPaused, getAmsSlots, getEntityStates } from '../utils/state-helpers';
-import { DEFAULT_CONFIG, DEFAULT_CAMERA_REFRESH_RATE } from '../constants/config';
+import { DEFAULT_CAMERA_REFRESH_RATE } from '../constants/config';
 import { localize } from '../utils/localize';
 
 class PrintWatchCard extends LitElement {
@@ -42,7 +42,7 @@ class PrintWatchCard extends LitElement {
     if (!config.printer_name) {
       throw new Error('Please define printer_name');
     }
-    this.config = { ...DEFAULT_CONFIG, ...config };
+    this.config = { ...config };
     this._cameraUpdateInterval = config.camera_refresh_rate || DEFAULT_CAMERA_REFRESH_RATE;
   }
 

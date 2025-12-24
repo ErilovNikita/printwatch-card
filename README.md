@@ -1,15 +1,13 @@
 # PrintWatch Card
-
 A feature-rich Home Assistant card for monitoring and controlling your P1S 3D printer. Get real-time updates on print progress, temperatures, material status, and more with a sleek, user-friendly interface.
 
 ### Light Mode 
-![PrintWatch Card Screenshot](assets/light-mode-min.png)
+![PrintWatch Card Screenshot](assets/light-mode.png)
 
 ### Dark Mode
-![PrintWatch Dark Mode](assets/dark-mode-min.png)  
+![PrintWatch Dark Mode](assets/dark-mode.png)  
 
 ## Features
-
 - 🎥 Live camera feed
   - Uses native HA streaming for `camera.*` entities (e.g. Generic Camera)
   - Uses configurable refresh rate for `image.*` entities
@@ -27,21 +25,16 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
   - English
   - Russian
   - Germany
-## Prerequisites
 
+## Prerequisites
 - Home Assistant
 - P1S Printer integration configured in Home Assistant using [ha-bambulab]((https://github.com/greghesp/ha-bambulab)) plugin
 - Required entities set up (see Configuration section)
 - For streaming: the built-in Home Assistant `stream` integration must be enabled
-- Image sensor toggle turned on (for image.* camera entities)
-
-![Image Screenshot](assets/image-toggle.png)
-
 
 ## Installation
 
 ### HACS (Recommended) - Awaiting approval from HACS, follow manual
-
 1. Open HACS in Home Assistant
 2. Click on "Frontend" section
 3. Click the "+ Explore & Download Repositories" button
@@ -50,7 +43,6 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
 6. Restart Home Assistant
 
 ### Manual Installation
-
 1. Navigate to HACS
 2. Tap 3 buttons in top right and select custom repositories
 3. Paste `https://github.com/drkpxl/printwatch-card` and select `dashboard`
@@ -61,12 +53,10 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
 8. Clear Browser cache if using previous version
 
 ## Configuration
-
 Add the card to your dashboard with this basic configuration:
 
 
 ## Configuration
-
 Add the card to your dashboard with this basic configuration:
 
 ```yaml
@@ -105,9 +95,7 @@ print_length_entity: sensor.p1s_print_length
 
 
 ## Troubleshooting
-
 ### Common Issues
-
 1. **Card not appearing**
    - Check that all required entities exist and are correctly named
    - Verify resources are properly loaded in HA
@@ -116,9 +104,6 @@ print_length_entity: sensor.p1s_print_length
    - Ensure camera entity is properly configured
    - Check that image updates are enabled in HA
    - Check that the `online_entity` field in the card is filled in
-   - You must toggle on "use image sensor camera" in the ha-bambulab plugin
-
-![Image Screenshot](assets/image-toggle.png)
 
 3. **Controls not working**
    - Verify that your user has proper permissions for the entities
@@ -132,22 +117,18 @@ print_length_entity: sensor.p1s_print_length
 
 
 ## Contributing
-
 Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## Support
-
 If you're having issues, please:
 1. Check the Troubleshooting section above
 2. Search existing [GitHub issues](https://github.com/yourusername/printwatch-card/issues)
 3. Create a new issue if your problem isn't already reported
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-
 - [Greg Hesp](https://github.com/greghesp/ha-bambulab) maker of [ha-bambulab]((https://github.com/greghesp/ha-bambulab)) without this plugin wouldn't work
 - Thanks to all P1S users who provided feedback and testing
 - Inspired by the great Home Assistant community
