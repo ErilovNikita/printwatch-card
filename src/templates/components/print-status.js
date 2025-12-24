@@ -45,7 +45,7 @@ export const printStatusTemplate = (entities, config) => {
           </div>
 
           <div class="controls">
-            ${entities.resume_button_entity ? html`
+            ${entities.resume_button_entity && entities.pause_button_entity ? html`
               <button 
                 class="btn btn-pause" 
                 @click=${config.onPause}
