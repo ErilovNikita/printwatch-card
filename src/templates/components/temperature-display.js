@@ -45,7 +45,7 @@ export const temperatureDisplayTemplate = (entities, hass, dialogConfig = {}, se
   const bedTempUnit = hass.states[entities.bed_temp_entity]?.attributes?.unit_of_measurement || '°C';
   const nozzleTempUnit = hass.states[entities.nozzle_temp_entity]?.attributes?.unit_of_measurement || '°C';
 
-  return html`
+  return entities.bedTemp || entities.nozzleTemp || entities.speed_profile_entity? html`
     <div class="temperatures">
       ${entities.bedTemp ? html`
         <div 
@@ -85,5 +85,5 @@ export const temperatureDisplayTemplate = (entities, hass, dialogConfig = {}, se
     </div>
 
     ${temperatureDialogTemplate(dialogConfig, hass)}
-  `;
+  ` : html``;
 };
