@@ -39,7 +39,7 @@ export const printStatusTemplate = (entities, config) => {
             ${entities.print_length_entity && entities.print_length_entity !== undefined ? html`
               ${localize.t('print.length')}: ${entities.print_length_entity} ${config.hass.states[entities.print_length_entity]?.attributes?.unit_of_measurement || ''} |
             ` : ''}
-            ${entities.print_weight_entity && ntities.print_weight_entity !== undefined ? html`
+            ${entities.print_weight_entity && entities.print_weight_entity !== undefined ? html`
               ${localize.t('print.weight')}: ${entities.print_weight_entity} ${config.hass.states[entities.print_weight_entity]?.attributes?.unit_of_measurement || ''}
             ` : ''}
           </div>

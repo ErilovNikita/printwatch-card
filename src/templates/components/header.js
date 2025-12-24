@@ -35,7 +35,7 @@ export const headerTemplate = (entities, controls) => html`
           class="icon-button ${controls.lightState === 'on' ? 'active' : ''}" 
           @click=${controls.onLightToggle}
         >
-          <ha-icon icon="${hass.states[entities.chamber_light_entity]?.attributes?.icon || 'mdi:lightbulb'}"></ha-icon>
+          <ha-icon icon="${controls.hass.states[entities.chamber_light_entity]?.attributes?.icon || 'mdi:lightbulb'}"></ha-icon>
         </button>
       ` : ''}
       ${entities.aux_fan_entity ? html`
@@ -43,7 +43,7 @@ export const headerTemplate = (entities, controls) => html`
           class="icon-button ${controls.fanState === 'on' ? 'active' : ''}"
           @click=${controls.onFanToggle}
         >
-          <ha-icon icon="${hass.states[entities.aux_fan_entity]?.attributes?.icon || 'mdi:fan'}"></ha-icon>
+          <ha-icon icon="${controls.hass.states[entities.aux_fan_entity]?.attributes?.icon || 'mdi:fan'}"></ha-icon>
         </button>
       ` : ''}
     </div>
