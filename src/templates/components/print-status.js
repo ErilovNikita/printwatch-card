@@ -2,7 +2,7 @@
 import { html } from 'lit';
 import { localize } from '../../utils/localize';
 
-export const printStatusTemplate = (entities, config, handlePopup) => {
+export const printStatusTemplate = (entities, config) => {
   if (!entities || !config || !config.hass) return html``;
 
   if (!entities.isPrinting) {
@@ -25,7 +25,7 @@ export const printStatusTemplate = (entities, config, handlePopup) => {
     <div class="print-status">
       <div class="print-preview">
         ${hasCoverImage ? html`
-          <div class="preview-image" @click=${e => handlePopup(e, entities.cover_image_entity)}>
+          <div class="preview-image" @click=${e => config.handlePopup(e, entities.cover_image_entity)}>
             <img 
               src="${config.hass.states[entities.cover_image_entity].attributes.entity_picture}" 
               alt="Print Preview"
