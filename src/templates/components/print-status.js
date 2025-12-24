@@ -36,10 +36,10 @@ export const printStatusTemplate = (entities, config) => {
         <div class="print-details">
           <h3>${entities.taskName}</h3>
           <div class="print-stats">
-            ${entities.print_length_entity !== undefined ? html`
+            ${entities.print_length_entity && entities.print_length_entity !== undefined ? html`
               ${localize.t('print.length')}: ${entities.print_length_entity} ${config.hass.states[entities.print_length_entity]?.attributes?.unit_of_measurement || ''} |
             ` : ''}
-            ${entities.print_weight_entity !== undefined ? html`
+            ${entities.print_weight_entity && ntities.print_weight_entity !== undefined ? html`
               ${localize.t('print.weight')}: ${entities.print_weight_entity} ${config.hass.states[entities.print_weight_entity]?.attributes?.unit_of_measurement || ''}
             ` : ''}
           </div>
