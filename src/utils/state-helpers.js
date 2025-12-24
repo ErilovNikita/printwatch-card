@@ -117,6 +117,8 @@ export const getEntityStates = (hass, config) => {
     isPrinting: isPrinting(hass, config),
     isPaused: isPaused(hass, config),
     lastPrintName: getLastPrintName(hass, config),
+    resume_button_entity: config.resume_button_entity,
+    pause_button_entity: config.pause_button_entity,
     // Pass through the entity IDs needed for service calls
     bed_temp_entity: config.bed_temp_entity,
     nozzle_temp_entity: config.nozzle_temp_entity,
