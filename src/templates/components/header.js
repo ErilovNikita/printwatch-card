@@ -8,7 +8,7 @@ export const headerTemplate = (entities, controls) => html`
       <div class="printer-name">${entities.name}</div>
       <div class="status">
         ${localize.localize(`entity.sensor.state.${entities.status}`)}
-        ${entities.isPrinting && entities.totalLayers ? html`
+        ${entities.isPrinting && entities.totalLayers && entities.currentLayer ? html`
           <span class="progress-text">
             ${Math.round(entities.progress)}% | 
             ${localize.t('print.layer')}: ${entities.currentLayer}/${entities.totalLayers}
