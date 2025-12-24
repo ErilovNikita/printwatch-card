@@ -70,9 +70,9 @@ class PrintWatchCard extends LitElement {
     this._cameraError = false;
   }
 
-  handlePopup(e, entity) {
+  handlePopup(e, entity, actionConfig = { action: 'more-info' }) {
     e.stopPropagation();
-    handleClick(this, this.hass, this.config, this.config.tap_action, entity.entity_id || entity);
+    handleClick(this, this.hass, this.config, actionConfig, entity.entity_id || entity);
   }
 
   _toggleLight() {
@@ -213,7 +213,7 @@ class PrintWatchCard extends LitElement {
       setDialogConfig,
       handlePauseDialog: () => this.handlePauseDialog(),
       handleStopDialog: () => this.handleStopDialog(),
-      handlePopup: (e, entity) => this.handlePopup(e, entity),
+      handlePopup: (e, entity, actionConfig = { action: 'more-info' }) => this.handlePopup(e, entity, actionConfig),
     });
   }
 
