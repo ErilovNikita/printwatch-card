@@ -47,35 +47,41 @@ export const temperatureDisplayTemplate = (entities, hass, dialogConfig = {}, se
 
   return html`
     <div class="temperatures">
-      <div 
-        class="temp-item" 
-        @click=${() => handleControlClick('bed', entities.bedTemp, entities.bed_target_temp_entity)}
-      >
-        <div class="temp-value">
-          ${formatTemperature(entities.bedTemp, bedTempUnit)}
+      ${entities.bed_target_temp_entity ? html`
+        <div 
+          class="temp-item" 
+          @click=${() => handleControlClick('bed', entities.bedTemp, entities.bed_target_temp_entity)}
+        >
+          <div class="temp-value">
+            ${formatTemperature(entities.bedTemp, bedTempUnit)}
+          </div>
+          <div>${localize.t('temperatures.bed')}</div>
         </div>
-        <div>${localize.t('temperatures.bed')}</div>
-      </div>
+      ` : ''}
 
-      <div 
-        class="temp-item"
-        @click=${() => handleControlClick('nozzle', entities.nozzleTemp, entities.nozzle_target_temp_entity)}
-      >
-        <div class="temp-value">
-          ${formatTemperature(entities.nozzleTemp, nozzleTempUnit)}
+      ${entities.nozzle_target_temp_entity ? html`
+        <div 
+          class="temp-item"
+          @click=${() => handleControlClick('nozzle', entities.nozzleTemp, entities.nozzle_target_temp_entity)}
+        >
+          <div class="temp-value">
+            ${formatTemperature(entities.nozzleTemp, nozzleTempUnit)}
+          </div>
+          <div>${localize.t('temperatures.nozzle')}</div>
         </div>
-        <div>${localize.t('temperatures.nozzle')}</div>
-      </div>
+      ` : ''}
 
-      <div 
-        class="temp-item"
-        @click=${() => handleControlClick('speed', hass.states[entities.speed_profile_entity]?.state || 'standard', entities.speed_profile_entity)}
-      >
-        <div class="temp-value">
-          ${localize.localize(`ui.card.printwatch.speed_profiles.${hass.states[entities.speed_profile_entity]?.state || 'standard'}`)}
+      ${entities.speed_profile_entity ? html`
+        <div 
+          class="temp-item"
+          @click=${() => handleControlClick('speed', hass.states[entities.speed_profile_entity]?.state || 'standard', entities.speed_profile_entity)}
+        >
+          <div class="temp-value">
+            ${localize.localize(`ui.card.printwatch.speed_profiles.${hass.states[entities.speed_profile_entity]?.state || 'standard'}`)}
+          </div>
+          <div>${localize.t('temperatures.speed')}</div>
         </div>
-        <div>${localize.t('temperatures.speed')}</div>
-      </div>
+      ` : ''}
     </div>
 
     ${temperatureDialogTemplate(dialogConfig, hass)}
