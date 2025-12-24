@@ -213,7 +213,7 @@ class PrintWatchCard extends LitElement {
       setDialogConfig,
       handlePauseDialog: () => this.handlePauseDialog(),
       handleStopDialog: () => this.handleStopDialog(),
-      handlePopup: () => this.handlePopup(),
+      handlePopup: (e, entity) => this.handlePopup(e, entity),
     });
   }
 
