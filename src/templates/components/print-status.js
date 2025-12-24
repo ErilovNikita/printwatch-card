@@ -45,14 +45,16 @@ export const printStatusTemplate = (entities, config) => {
           </div>
 
           <div class="controls">
-            <button 
-              class="btn btn-pause" 
-              @click=${config.onPause}
-            >
-              ${entities.isPaused ? 
-                localize.t('controls.resume') : 
-                localize.t('controls.pause')}
-            </button>
+            ${entities.resume_button_entity ? html`
+              <button 
+                class="btn btn-pause" 
+                @click=${config.onPause}
+              >
+                ${entities.isPaused ? 
+                  localize.t('controls.resume') : 
+                  localize.t('controls.pause')}
+              </button>
+            ` : ''}
             ${entities.stop_button_entity ? html`
               <button 
                 class="btn btn-stop"
