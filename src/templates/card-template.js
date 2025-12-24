@@ -57,7 +57,8 @@ export const cardTemplate = (context) => {
         hass,
         onPause: handlePauseDialog,
         onStop: handleStopDialog,
-        onImageError: context.handleImageError
+        onImageError: context.handleImageError,
+        handlePopup
       })}
       ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
       ${materialSlotsTemplate(amsSlots)}

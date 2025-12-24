@@ -10,6 +10,7 @@ export const cardStyles = css`
     overflow: hidden;
     background: var(--secondary-background-color);
     align-self: stretch;
+    cursor: pointer;
   }
 
   .preview-image img {
