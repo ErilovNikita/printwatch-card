@@ -47,7 +47,7 @@ export const temperatureDisplayTemplate = (entities, hass, dialogConfig = {}, se
 
   return html`
     <div class="temperatures">
-      ${entities.bed_target_temp_entity ? html`
+      ${entities.bedTemp ? html`
         <div 
           class="temp-item" 
           @click=${() => handleControlClick('bed', entities.bedTemp, entities.bed_target_temp_entity)}
@@ -59,7 +59,7 @@ export const temperatureDisplayTemplate = (entities, hass, dialogConfig = {}, se
         </div>
       ` : ''}
 
-      ${entities.nozzle_target_temp_entity ? html`
+      ${entities.nozzleTemp ? html`
         <div 
           class="temp-item"
           @click=${() => handleControlClick('nozzle', entities.nozzleTemp, entities.nozzle_target_temp_entity)}
