@@ -16,9 +16,11 @@ export const headerTemplate = (entities, controls) => html`
         ` : ''}
       </div>
       ${entities.isPrinting ? html`
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: ${entities.progress}%"></div>
-        </div>
+        ${entities.progress ? html`
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${entities.progress}%"></div>
+          </div>
+        ` : ''}
         ${entities.remainingTime ? html`
           <div class="layer-info">
             <b>${localize.t('time.left')}:</b> ${formatDuration(entities.remainingTime)},
