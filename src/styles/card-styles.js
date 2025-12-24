@@ -122,7 +122,6 @@ export const cardStyles = css`
   /* Camera Feed */
   .camera-feed {
     width: 100%;
-    aspect-ratio: 16 / 9;
     border-radius: 8px;
     margin-bottom: 16px;
     position: relative;
