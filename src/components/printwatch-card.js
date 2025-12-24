@@ -6,6 +6,7 @@ import { formatDuration, formatEndTime } from '../utils/formatters';
 import { isPrinting, isPaused, getAmsSlots, getEntityStates } from '../utils/state-helpers';
 import { DEFAULT_CAMERA_REFRESH_RATE } from '../constants/config';
 import { localize } from '../utils/localize';
+import handleClick from '../utils/handleClick';
 
 class PrintWatchCard extends LitElement {
   static get properties() {
@@ -67,6 +68,11 @@ class PrintWatchCard extends LitElement {
 
   handleImageLoad() {
     this._cameraError = false;
+  }
+
+  handlePopup(e, entity) {
+    e.stopPropagation();
+    handleClick(this, this.hass, this.config, this.config.tap_action, entity.entity_id || entity);
   }
 
   _toggleLight() {
@@ -207,6 +213,7 @@ class PrintWatchCard extends LitElement {
       setDialogConfig,
       handlePauseDialog: () => this.handlePauseDialog(),
       handleStopDialog: () => this.handleStopDialog(),
+      handlePopup: () => this.handlePopup(),
     });
   }
 

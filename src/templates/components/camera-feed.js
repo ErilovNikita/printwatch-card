@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { localize } from '../../utils/localize';
 
-export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPicture, onError, onLoad, hass, cameraEntity }) => {
+export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPicture, onError, onLoad, hass, cameraEntity, handlePopup }) => {
   if (!isOnline || hasError) {
     return html`
       <div class="offline-message">
@@ -28,7 +28,7 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
     }
 
     return html`
-      <div class="camera-feed">
+      <div class="camera-feed" @click=${e => handlePopup(e, cameraEntity)}>
         <div class="camera-label">${localize.localize(`entity.sensor.state.${currentStage}`)}</div>
         <ha-camera-stream
           .hass=${hass}
@@ -41,7 +41,7 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
     `;
   } else {
     return html`
-      <div class="camera-feed">
+      <div class="camera-feed" @click=${e => handlePopup(e, cameraEntity)}>
         <div class="camera-label">${localize.localize(`entity.sensor.state.${currentStage}`)}</div>
         <img
           src="${entityPicture}"

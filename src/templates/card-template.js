@@ -22,7 +22,8 @@ export const cardTemplate = (context) => {
     confirmDialog,
     setDialogConfig,
     handlePauseDialog,
-    handleStopDialog
+    handleStopDialog,
+    handlePopup
   } = context;
 
   if (!entities || !hass) return html``;
@@ -45,6 +46,7 @@ export const cardTemplate = (context) => {
     onLoad: context.handleImageLoad,
     hass,
     cameraEntity: entities.camera_entity,
+    handlePopup
   };
 
   return html`

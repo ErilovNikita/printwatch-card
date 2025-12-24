@@ -125,6 +125,7 @@ export const cardStyles = css`
     border-radius: 8px;
     margin-bottom: 16px;
     position: relative;
+    cursor: pointer;
     background: var(--secondary-background-color);
     overflow: hidden;
   }
