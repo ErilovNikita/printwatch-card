@@ -17,7 +17,7 @@ export const isPrinting = (hass, config) => {
   
   if (PRINTING_STATES.includes(printStatus)) return true;
   if (NON_PRINTING_STATES.includes(currentStage)) return false;
-  if (currentStage === 'printing' || currentStage.startsWith('paused_')) return true;
+  if (currentStage === 'printing' || (typeof currentStage === 'string' && currentStage.startsWith('paused_'))) return true;
   
   return PRINTING_PROCESS_STATES.includes(currentStage);
 };
@@ -98,6 +98,25 @@ const getLastPrintName = (hass, config) => {
     : null;
 };
 
+export const showElement = (hass, config) => {
+  const getState = (configValue, defaultValue = true) => {
+    if (configValue === undefined || configValue === null) return defaultValue;
+    const norm = String(configValue).trim().toLowerCase();
+    if (norm === '' || norm === 'null' || norm === 'undefined') return defaultValue;
+    return ['true', '1', 'yes'].includes(norm);
+  };
+
+  // Guard access to config.show (may be undefined)
+  const show = config?.show || {};
+
+  return {
+    name: getState(show.name),
+    camera: getState(show.camera),
+    control: getState(show.control),
+    ams_slots: getState(show.ams_slots)
+  };
+}
+
 export const getEntityStates = (hass, config) => {
   const getState = (entity, defaultValue = '0') => 
     hass.states[entity]?.state || defaultValue;
@@ -120,7 +139,6 @@ export const getEntityStates = (hass, config) => {
     resume_button_entity: config.resume_button_entity,
     pause_button_entity: config.pause_button_entity,
     stop_button_entity: config.stop_button_entity,
-    // Pass through the entity IDs needed for service calls
     bed_temp_entity: config.bed_temp_entity,
     nozzle_temp_entity: config.nozzle_temp_entity,
     bed_target_temp_entity: config.bed_target_temp_entity,

@@ -11,6 +11,7 @@ import { confirmDialogTemplate } from './components/confirm-dialog';
 export const cardTemplate = (context) => {
   const { 
     entities, 
+    show,
     hass, 
     amsSlots, 
     _toggleLight, 
@@ -51,8 +52,8 @@ export const cardTemplate = (context) => {
 
   return html`
     <div class="card">
-      ${headerTemplate(entities, controls)}
-      ${cameraFeedTemplate(cameraProps)}
+      ${headerTemplate(entities, show, controls)}
+      ${show.camera === true ? cameraFeedTemplate(cameraProps) : ''}
       ${printStatusTemplate(entities, {
         hass,
         onPause: handlePauseDialog,
@@ -61,7 +62,7 @@ export const cardTemplate = (context) => {
         handlePopup
       })}
       ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
-      ${materialSlotsTemplate(amsSlots)}
+      ${show.ams_slots === true ? materialSlotsTemplate(amsSlots) : ''}
       ${temperatureDialogTemplate(dialogConfig, hass)}
       ${confirmDialogTemplate(confirmDialog)}
     </div>

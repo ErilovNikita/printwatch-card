@@ -13,7 +13,7 @@ export const cameraFeedTemplate = ({ isOnline, hasError, currentStage, entityPic
     `;
   }
 
-  const isHaCamera = cameraEntity && cameraEntity.startsWith('camera.');
+  const isHaCamera = cameraEntity && cameraEntity?.startsWith('camera.');
 
   if (isHaCamera) {
     const stateObj = hass?.states?.[cameraEntity];

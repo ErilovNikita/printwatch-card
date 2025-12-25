@@ -3,7 +3,7 @@ import { LitElement, html } from 'lit';
 import { cardTemplate } from '../templates/card-template';
 import { cardStyles } from '../styles/card-styles';
 import { formatDuration, formatEndTime } from '../utils/formatters';
-import { isPrinting, isPaused, getAmsSlots, getEntityStates } from '../utils/state-helpers';
+import { isPrinting, isPaused, getAmsSlots, getEntityStates, showElement } from '../utils/state-helpers';
 import { DEFAULT_CAMERA_REFRESH_RATE } from '../constants/config';
 import { localize } from '../utils/localize';
 import handleClick from '../utils/handleClick';
@@ -190,6 +190,7 @@ class PrintWatchCard extends LitElement {
     }
 
     const entities = getEntityStates(this.hass, this.config);
+    const show = showElement(this.hass, this.config);
     const amsSlots = getAmsSlots(this.hass, this.config);
     
     const setDialogConfig = (config) => {
@@ -199,6 +200,7 @@ class PrintWatchCard extends LitElement {
 
     return cardTemplate({
       entities,
+      show,
       hass: this.hass,
       amsSlots,
       formatters: this.formatters,
