@@ -64,17 +64,17 @@ type: custom:printwatch-card
 printer_name: P1S
 camera_refresh_rate: 1000  # Refresh rate in milliseconds (1 second)
 print_status_entity: sensor.p1s_print_status
-current_stage_entity: sensor.p1s_current_stage
+stage: sensor.p1s_current_stage
 task_name_entity: sensor.p1s_task_name
-progress_entity: sensor.p1s_print_progress
+progress: sensor.p1s_print_progress
 current_layer_entity: sensor.p1s_current_layer
 total_layers_entity: sensor.p1s_total_layer_count
-remaining_time_entity: sensor.p1s_remaining_time
+remaining_time: sensor.p1s_remaining_time
 bed_temp_entity: sensor.p1s_bed_temperature
 nozzle_temp_entity: sensor.p1s_nozzle_temperature
 bed_target_temp_entity: number.p1s_bed_target_temperature
 nozzle_target_temp_entity: number.p1s_nozzle_target_temperature
-speed_profile_entity: select.p1s_printing_speed
+speed_profile: select.p1s_printing_speed
 ams_slot1_entity: sensor.p1s_ams_tray_1
 ams_slot2_entity: sensor.p1s_ams_tray_2
 ams_slot3_entity: sensor.p1s_ams_tray_3
@@ -83,11 +83,11 @@ ams_slot5_entity: sensor.p1s_ams_tray_5
 ...
 camera_entity: image.p1s_camera
 cover_image_entity: image.p1s_cover_image
-pause_button_entity: button.p1s_pause_printing
-resume_button_entity: button.p1s_resume_printing
-stop_button_entity: button.p1s_stop_printing
+pause_button: button.p1s_pause_printing
+resume_button: button.p1s_resume_printing
+stop_button: button.p1s_stop_printing
 chamber_light_entity: light.p1s_chamber_light
-online_entity: binary_sensor.p1s_online
+online: binary_sensor.p1s_online
 aux_fan_entity: fan.p1s_aux_fan
 print_weight_entity: sensor.p1s_print_weight
 print_length_entity: sensor.p1s_print_length
@@ -103,7 +103,7 @@ print_length_entity: sensor.p1s_print_length
 2. **Camera feed not updating**
    - Ensure camera entity is properly configured
    - Check that image updates are enabled in HA
-   - Check that the `online_entity` field in the card is filled in
+   - Check that the `online` field in the card is filled in
 
 3. **Controls not working**
    - Verify that your user has proper permissions for the entities

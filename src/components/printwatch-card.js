@@ -40,15 +40,15 @@ class PrintWatchCard extends LitElement {
   }
 
   setConfig(config) {
-    if (!config.printer_name) {
-      throw new Error('Please define printer_name');
+    if (!config.title) {
+      throw new Error('Please define title in the card configuration.');
     }
     this.config = { ...config };
-    this._cameraUpdateInterval = config.camera_refresh_rate || DEFAULT_CAMERA_REFRESH_RATE;
+    this._cameraUpdateInterval = config.camera.refresh_rate || DEFAULT_CAMERA_REFRESH_RATE;
   }
 
   isOnline() {
-    const onlineEntity = this.hass?.states[this.config.online_entity];
+    const onlineEntity = this.hass?.states[this.config.online];
     return onlineEntity?.state === 'on';
   }
 
@@ -76,7 +76,7 @@ class PrintWatchCard extends LitElement {
   }
 
   _toggleLight() {
-    const entityId = this.config?.chamber_light_entity;
+    const entityId = this.config?.control?.chamber_light;
     if (!entityId) return;
 
     const entity = this.hass.states[entityId];
@@ -89,12 +89,12 @@ class PrintWatchCard extends LitElement {
   }
 
   _toggleFan() {
-    const fanEntity = this.hass.states[this.config.aux_fan_entity];
+    const fanEntity = this.hass.states[this.config.control.fan];
     if (!fanEntity) return;
 
     const service = fanEntity.state === 'on' ? 'turn_off' : 'turn_on';
     this.hass.callService('fan', service, {
-      entity_id: this.config.aux_fan_entity,
+      entity_id: this.config.control.fan,
     });
   }
 
@@ -127,7 +127,7 @@ class PrintWatchCard extends LitElement {
     const timestamp = new Date().getTime();
     const cameraImg = this.shadowRoot?.querySelector('.camera-feed img');
     if (cameraImg) {
-      const cameraEntity = this.hass.states[this.config.camera_entity];
+      const cameraEntity = this.hass.states[this.config.camera.entity];
       if (cameraEntity?.attributes?.entity_picture) {
         cameraImg.src = `${cameraEntity.attributes.entity_picture}&t=${timestamp}`;
       }
@@ -135,7 +135,7 @@ class PrintWatchCard extends LitElement {
 
     const coverImg = this.shadowRoot?.querySelector('.preview-image img');
     if (coverImg) {
-      const coverEntity = this.hass.states[this.config.cover_image_entity];
+      const coverEntity = this.hass.states[this.config.model.preview];
       if (coverEntity?.attributes?.entity_picture) {
         coverImg.src = `${coverEntity.attributes.entity_picture}&t=${timestamp}`;
       }
@@ -150,8 +150,8 @@ class PrintWatchCard extends LitElement {
       message: localize.t('dialogs.pause.message'),
       onConfirm: () => {
         const entity = isPaused(this.hass, this.config) 
-          ? this.config.resume_button_entity 
-          : this.config.pause_button_entity;
+          ? this.config.control.resume_button 
+          : this.config.control.pause_button;
         
         this.hass.callService('button', 'press', {
           entity_id: entity
@@ -173,7 +173,7 @@ class PrintWatchCard extends LitElement {
       message: localize.t('dialogs.stop.message'),
       onConfirm: () => {
         this.hass.callService('button', 'press', {
-          entity_id: this.config.stop_button_entity
+          entity_id: this.config.control.stop_button
         });
         this._confirmDialog = { open: false };
       },
