@@ -7,6 +7,7 @@ import { isPrinting, isPaused, getAmsSlots, getEntityStates, showElement } from 
 import { DEFAULT_CAMERA_REFRESH_RATE } from '../constants/config';
 import { localize } from '../utils/localize';
 import handleClick from '../utils/handleClick';
+import './printwatch-card-editor';
 
 class PrintWatchCard extends LitElement {
   static get properties() {
@@ -123,7 +124,7 @@ class PrintWatchCard extends LitElement {
     }
 
     this._lastCameraUpdate = Date.now();
-    
+
     const timestamp = new Date().getTime();
     const cameraImg = this.shadowRoot?.querySelector('.camera-feed img');
     if (cameraImg) {
@@ -149,10 +150,10 @@ class PrintWatchCard extends LitElement {
       title: localize.t('dialogs.pause.title'),
       message: localize.t('dialogs.pause.message'),
       onConfirm: () => {
-        const entity = isPaused(this.hass, this.config) 
-          ? this.config.control.resume_button 
+        const entity = isPaused(this.hass, this.config)
+          ? this.config.control.resume_button
           : this.config.control.pause_button;
-        
+
         this.hass.callService('button', 'press', {
           entity_id: entity
         });
@@ -192,7 +193,7 @@ class PrintWatchCard extends LitElement {
     const entities = getEntityStates(this.hass, this.config);
     const show = showElement(this.hass, this.config);
     const amsSlots = getAmsSlots(this.hass, this.config);
-    
+
     const setDialogConfig = (config) => {
       this._dialogConfig = config;
       this.requestUpdate();
@@ -222,6 +223,18 @@ class PrintWatchCard extends LitElement {
   // This is used by Home Assistant for card size calculation
   getCardSize() {
     return 6;
+  }
+
+  static getConfigElement() {
+    return document.createElement('printwatch-card-editor');
+  }
+
+
+  static getStubConfig() {
+    return {
+      title: 'My lover printer',
+      camera: {},
+    };
   }
 }
 
