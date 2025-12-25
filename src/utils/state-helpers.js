@@ -26,41 +26,18 @@ export const isPaused = (hass, config) =>
   hass.states[config.status]?.state === 'pause';
 
 export const getAmsSlots = (hass, config) => {
-  // First, check for explicit external spool configuration
-  const externalSpoolEntity = config.external_spool_entity;
-  
-  // Check if any AMS slot entities are defined and not null
-  const amsSlotEntities = [
-    config.ams_slot1_entity,
-    config.ams_slot2_entity,
-    config.ams_slot3_entity,
-    config.ams_slot4_entity,
-    config.ams_slot5_entity,
-    config.ams_slot6_entity,
-    config.ams_slot7_entity,
-    config.ams_slot8_entity,
-    config.ams_slot9_entity,
-    config.ams_slot10_entity,
-    config.ams_slot11_entity,
-    config.ams_slot12_entity,
-    config.ams_slot13_entity,
-    config.ams_slot14_entity,
-    config.ams_slot15_entity,
-    config.ams_slot16_entity
-  ].filter(entity => entity != null && entity.trim() !== '');
-
-  // If external spool is defined and has a valid state, use it
-  if (externalSpoolEntity) {
-    const externalSpool = hass.states[externalSpoolEntity];
-    if (externalSpool?.state && externalSpool.state !== 'unknown') {
-      return [{
-        type: externalSpool.state || 'External Spool',
-        color: externalSpool.attributes?.color || '#E0E0E0',
-        empty: false,
-        name: externalSpool.attributes?.name || 'External Spool',
-        active: true
-      }];
-    }
+  // Build list of AMS slot entity ids. Only accept `config.ams_slots` array.
+  // Each item may be a string entity id or an object like { entity: 'sensor.x' }.
+  let amsSlotEntities = [];
+  if (Array.isArray(config?.ams_slots)) {
+    amsSlotEntities = config.ams_slots
+      .map(item => {
+        if (!item && item !== 0) return null;
+        if (typeof item === 'string') return item.trim();
+        if (typeof item === 'object' && item.entity) return String(item.entity).trim();
+        return null;
+      })
+      .filter(e => e && e !== '');
   }
 
   // If no AMS slot entities are defined, return empty array
@@ -70,16 +47,17 @@ export const getAmsSlots = (hass, config) => {
 
   // Process AMS slots if they exist
   const processedSlots = amsSlotEntities
-    .map(entity => {
-      const state = hass.states[entity];
+    .map(entityId => {
+      const state = hass.states[entityId];
       if (!state) return null;
-      
+
       return {
         type: state.state || 'Empty',
         color: state.attributes?.color || '#E0E0E0',
-        empty: state.attributes?.empty || false,
-        active: state.attributes?.active || false,
-        name: state.attributes?.name || 'Unknown'
+        empty: !!state.attributes?.empty,
+        active: !!state.attributes?.active,
+        name: state.attributes?.name || state.attributes?.friendly_name || 'Unknown',
+        entity: entityId
       };
     })
     .filter(Boolean);
