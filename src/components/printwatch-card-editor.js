@@ -304,7 +304,7 @@ class PrintwatchCardEditor extends LitElement {
 
                 <ha-form
                     .hass=${this.hass}
-                    .show_labels=${false}
+                    label="Катушки"
                     .data=${config}
                     .schema=${[
                         {
