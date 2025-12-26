@@ -57,7 +57,7 @@ Add the card to your dashboard with this basic configuration:
 
 
 ## Configuration
-Add the card to your dashboard with this basic configuration:
+Add the card to your dashboard with this configuration:
 
 ```yaml
 type: custom:printwatch-card
@@ -68,34 +68,41 @@ stage: sensor.a1_current_stage
 progress: sensor.a1_print_progress
 remaining_time: sensor.a1_remaining_time
 speed_profile: select.a1_printing_speed
-show:
-  title: false
 control:
-  fan: fan.a1_cooling_fan
-  pause_button: button.a1_pause_printing
-  resume_button: button.a1_resume_printing
-  stop_button: button.a1_stop_printing
-  chamber_light: switch.bedroom_top
+    fan: fan.a1_cooling_fan
+    pause_button: button.a1_pause_printing
+    resume_button: button.a1_resume_printing
+    stop_button: button.a1_stop_printing
+    chamber_light: switch.bedroom_top
 camera:
-  refresh_rate: 1000
-  entity: image.a1_camera
+    refresh_rate: 1000
+    entity: image.a1_camera
 layers:
-  current_layer: sensor.a1_current_layer
-  total_layers: sensor.a1_total_layer_count
+    current_layer: sensor.a1_current_layer
+    total_layers: sensor.a1_total_layer_count
 temperature:
-  bed: sensor.a1_bed_temperature
-  nozzle: sensor.a1_nozzle_temperature
-  bed_number: number.a1_bed_target_temperature
-  nozzle_number: number.a1_nozzle_target_temperature
+    bed: sensor.a1_bed_temperature
+    nozzle: sensor.a1_nozzle_temperature
+    bed_number: number.a1_bed_target_temperature
+    nozzle_number: number.a1_nozzle_target_temperature
 model:
-  name: sensor.a1_task_name
-  preview: image.a1_cover_image
-  weight: sensor.a1_print_weight
-  length: sensor.a1_print_length
+    name: sensor.a1_task_name
+    preview: image.a1_cover_image
+    weight: sensor.a1_print_weight
+    length: sensor.a1_print_length
 ams_slots:
-  - sensor.a1_externalspool_external_spool
-  - sensor.a1_externalspool_external_spool
+    - sensor.a1_externalspool_external_spool
+    - sensor.a1_externalspool_external_spool
+```
 
+A block for hiding card elements is also supported (not available in the visual editor):
+> By default, all blocks are displayed. Value: `True`
+```yaml
+show:
+    title: false
+    camera: false
+    control: false
+    ams_slots: false
 ```
 
 
