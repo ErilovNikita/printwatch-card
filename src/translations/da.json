@@ -8,13 +8,13 @@
         "paused": "Pauset",
         "complete": "Fuldført",
         "offline": "Offline",
-        "failed" : "Mislykket",
+        "failed": "Mislykket",
         "unknown": "Ukendt",
         "running": "Kører",
         "finish": "Afsluttet",
-        "filament_loading" : "Filament indlæses",
-        "homing_toolhead" : "Hjemføring af værktøjshoved",
-        "heatbed_preheating" : "Forvarmning af varmeplade",
+        "filament_loading": "Filament indlæses",
+        "homing_toolhead": "Hjemføring af værktøjshoved",
+        "heatbed_preheating": "Forvarmning af varmeplade",
         "calibrating_extrusion": "Kalibrering af ekstrusion",
         "sweeping_xy_mech_mode": "Kalibrering af XY-akser",
         "cleaning_nozzle_tip": "Rengøring af dysen",
@@ -62,7 +62,7 @@
           "standard": "Standard",
           "sport": "Sport",
           "ludicrous": "Ekstrem",
-          "unavailable" : "Ikke tilgængelig"
+          "unavailable": "Ikke tilgængelig"
         },
         "dialogs": {
           "pause": {
@@ -80,6 +80,60 @@
           "empty": "Tom",
           "unknown": "Ukendt",
           "external_spool": "Ekstern spole"
+        }
+      },
+      "printwatch_editor": {
+        "general": {
+          "label": "Generelle indstillinger",
+          "title": "Titel",
+          "status": "Printerstatus",
+          "stage": "Udskriftsfase",
+          "progress": "Udskriftsfremskridt",
+          "remaining_time": "Resterende tid",
+          "speed_profile": "Udskrivningshastighedsprofil"
+        },
+        "camera": {
+          "label": "Kameraindstillinger",
+          "entity": "Kamera",
+          "refresh_rate": "Opdateringsinterval",
+          "hint": {
+            "entity": "Bruges til live visning fra kameraet",
+            "refresh_rate": "Opdateringsinterval for kamerabilledet i sekunder"
+          }
+        },
+        "control": {
+          "label": "Udskriftskontrol",
+          "resume": "Fortsæt-knap",
+          "pause": "Pause-knap",
+          "stop": "Stop-knap"
+        },
+        "layers": {
+          "label": "Lag",
+          "current_layer": "Aktuelt lag",
+          "total_layers": "Samlet antal lag"
+        },
+        "model": {
+          "label": "Model",
+          "name": "Navn",
+          "preview": "Forhåndsvisning",
+          "length": "Længde",
+          "weight": "Vægt"
+        },
+        "temperature": {
+          "label": "Temperatur",
+          "bed": "Printplade",
+          "bed_number": "Styring af printplade",
+          "nozzle": "Dyse",
+          "nozzle_number": "Styring af dyse"
+        },
+        "filament": {
+          "label": "Filament",
+          "spools": "Spoler"
+        },
+        "additional": {
+          "label": "Yderligere",
+          "chamber_light": "Kammerlys",
+          "fan": "Køleventilator"
         }
       }
     }

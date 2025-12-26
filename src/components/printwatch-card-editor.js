@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { localize } from '../utils/localize';
 
 class PrintwatchCardEditor extends LitElement {
     static properties = {
@@ -87,16 +88,16 @@ class PrintwatchCardEditor extends LitElement {
 
         return html`
             <div class="section">
-                <div class="section-title">Основная информация</div>
+                <div class="section-title">${localize.e('general.label')}</div>
 
                 <ha-textfield
-                    label="Название"
+                    label="${localize.e('general.title')}"
                     .value=${config.title || ''}
                     @input=${e => this._updateKey('title', e.detail.value ?? e.target.value)}
                 ></ha-textfield>
 
                 <ha-entity-picker
-                    label="Статус принтера"
+                    label="${localize.e('general.status')}"
                     .hass=${this.hass}
                     .value=${config.status || ''}
                     .includeDomains=${['sensor']}
@@ -105,7 +106,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Этап печати"
+                    label="${localize.e('general.stage')}"
                     .hass=${this.hass}
                     .value=${config.stage || ''}
                     .includeDomains=${['sensor']}
@@ -114,7 +115,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Прогресс печати"
+                    label="${localize.e('general.progress')}"
                     .hass=${this.hass}
                     .value=${config.progress || ''}
                     .includeDomains=${['sensor']}
@@ -123,7 +124,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Остаток времени печати"
+                    label="${localize.e('general.remaining_time')}"
                     .hass=${this.hass}
                     .value=${config.remaining_time || ''}
                     .includeDomains=${['sensor']}
@@ -132,7 +133,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Профиль скорости печати"
+                    label="${localize.e('general.speed_profile')}"
                     .hass=${this.hass}
                     .value=${config.speed_profile || ''}
                     .includeDomains=${['select']}
@@ -143,30 +144,30 @@ class PrintwatchCardEditor extends LitElement {
             </div>
 
             <div class="section">
-                <div class="section-title">Камера</div>
+                <div class="section-title">${localize.e('camera.label')}</div>
 
                 <ha-entity-picker
-                    label="Камера"
+                    label="${localize.e('camera.entity')}"
                     .hass=${this.hass}
                     .value=${cameraConfig.entity ?? ''}
                     .includeDomains=${['camera', 'image']}
                     allow-custom-entity
                     @value-changed=${e => this._updateNested('camera.entity', e.detail.value ?? e.target.value)}
                 ></ha-entity-picker>
-                <div class="hint">Используется для отображения в реальном времени</div>
+                <div class="hint">${localize.e('camera.hint.entity')}</div>
 
                 <ha-textfield
-                    label="Частота обновления камеры (в секундах)"
+                    label="${localize.e('camera.refresh_rate')}"
                     .value=${cameraConfig.refresh_rate ?? '1000'}
                     @input=${e => this._updateNested('camera.refresh_rate', e.detail.value ?? e.target.value)}
                 ></ha-textfield>
+                <div class="hint">${localize.e('camera.hint.refresh_rate')}</div>
             </div>
 
             <div class="section">
-                <div class="section-title">Управление</div>
-
+                <div class="section-title">${localize.e('control.label')}</div>
                 <ha-entity-picker
-                    label="Пуск печати"
+                    label="${localize.e('control.resume')}"
                     .hass=${this.hass}
                     .value=${controlConfig.resume_button ?? ''}
                     .includeDomains=${['button']}
@@ -175,7 +176,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Пауза печати"
+                    label="${localize.e('control.pause')}"
                     .hass=${this.hass}
                     .value=${controlConfig.pause_button ?? ''}
                     .includeDomains=${['button']}
@@ -184,7 +185,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Остановка печати"
+                    label="${localize.e('control.stop')}"
                     .hass=${this.hass}
                     .value=${controlConfig.stop_button ?? ''}
                     .includeDomains=${['button']}
@@ -195,10 +196,10 @@ class PrintwatchCardEditor extends LitElement {
             </div>
 
             <div class="section">
-                <div class="section-title">Слои</div>
+                <div class="section-title">${localize.e('layers.label')}</div>
 
                 <ha-entity-picker
-                    label="Текущий слой"
+                    label="${localize.e('layers.current_layer')}"
                     .hass=${this.hass}
                     .value=${layersConfig.current_layer ?? ''}
                     .includeDomains=${['sensor']}
@@ -207,7 +208,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Общее кол-во слоев"
+                    label="${localize.e('layers.total_layers')}"
                     .hass=${this.hass}
                     .value=${layersConfig.total_layers ?? ''}
                     .includeDomains=${['sensor']}
@@ -218,10 +219,10 @@ class PrintwatchCardEditor extends LitElement {
             </div>
 
             <div class="section">
-                <div class="section-title">Модель</div>
+                <div class="section-title">${localize.e('model.label')}</div>
 
                 <ha-entity-picker
-                    label="Название"
+                    label="${localize.e('model.name')}"
                     .hass=${this.hass}
                     .value=${modelConfig.name ?? ''}
                     .includeDomains=${['sensor']}
@@ -230,7 +231,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Превью"
+                    label="${localize.e('model.preview')}"
                     .hass=${this.hass}
                     .value=${modelConfig.preview ?? ''}
                     .includeDomains=${['image']}
@@ -239,7 +240,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Длинна"
+                    label="${localize.e('model.length')}"
                     .hass=${this.hass}
                     .value=${modelConfig.length ?? ''}
                     .includeDomains=${['sensor']}
@@ -248,7 +249,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Вес"
+                    label="${localize.e('model.weight')}"
                     .hass=${this.hass}
                     .value=${modelConfig.weight ?? ''}
                     .includeDomains=${['sensor']}
@@ -259,10 +260,10 @@ class PrintwatchCardEditor extends LitElement {
             </div>
 
             <div class="section">
-                <div class="section-title">Температура</div>
+                <div class="section-title">${localize.e('temperature.label')}</div>
 
                 <ha-entity-picker
-                    label="Стол"
+                    label="${localize.e('temperature.bed')}"
                     .hass=${this.hass}
                     .value=${temperatureConfig.bed ?? ''}
                     .includeDomains=${['sensor']}
@@ -271,7 +272,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Управление столом"
+                    label="${localize.e('temperature.bed_number')}"
                     .hass=${this.hass}
                     .value=${temperatureConfig.bed_number ?? ''}
                     .includeDomains=${['number']}
@@ -280,7 +281,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Споло"
+                    label="${localize.e('temperature.nozzle')}"
                     .hass=${this.hass}
                     .value=${temperatureConfig.nozzle ?? ''}
                     .includeDomains=${['sensor']}
@@ -289,7 +290,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Управление соплом"
+                    label="${localize.e('temperature.nozzle_number')}"
                     .hass=${this.hass}
                     .value=${temperatureConfig.nozzle_number ?? ''}
                     .includeDomains=${['number']}
@@ -300,11 +301,11 @@ class PrintwatchCardEditor extends LitElement {
             </div>
 
             <div class="section">
-                <div class="section-title">Филамент</div>
+                <div class="section-title">${localize.e('filament.label')}</div>
 
                 <ha-form
                     .hass=${this.hass}
-                    label="Катушки"
+                    label="${localize.e('filament.spools')}"
                     .data=${config}
                     .schema=${[
                         {
@@ -326,10 +327,10 @@ class PrintwatchCardEditor extends LitElement {
             </div>
 
             <div class="section">
-                <div class="section-title">Дополнительно</div>
+                <div class="section-title">${localize.e('additional.label')}</div>
 
                 <ha-entity-picker
-                    label="Освещение камеры"
+                    label="${localize.e('additional.chamber_light')}"
                     .hass=${this.hass}
                     .value=${controlConfig.chamber_light ?? ''}
                     .includeDomains=${['switch', 'light']}
@@ -338,7 +339,7 @@ class PrintwatchCardEditor extends LitElement {
                 ></ha-entity-picker>
 
                 <ha-entity-picker
-                    label="Вентилятор"
+                    label="${localize.e('additional.fan')}"
                     .hass=${this.hass}
                     .value=${controlConfig.fan ?? ''}
                     .includeDomains=${['fan']}

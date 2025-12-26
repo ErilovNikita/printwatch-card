@@ -12,9 +12,9 @@
         "unknown": "Unbekannt",
         "running": "Läuft",
         "finish": "Beendet",
-        "filament_loading" : "Filament wird geladen",
-        "homing_toolhead" : "Fahrkopf wird kalibriert",
-        "heatbed_preheating" : "Druckbett wird vorgeheizt",
+        "filament_loading": "Filament wird geladen",
+        "homing_toolhead": "Fahrkopf wird kalibriert",
+        "heatbed_preheating": "Druckbett wird vorgeheizt",
         "calibrating_extrusion": "Kalibrierung der Extrusion",
         "sweeping_xy_mech_mode": "Kalibrierung der XY-Achsen",
         "cleaning_nozzle_tip": "Reinigung der Düse",
@@ -62,7 +62,7 @@
           "standard": "Standard",
           "sport": "Sport",
           "ludicrous": "Extrem",
-          "unavailable" : "Nicht verfügbar"
+          "unavailable": "Nicht verfügbar"
         },
         "dialogs": {
           "pause": {
@@ -80,6 +80,60 @@
           "empty": "Leer",
           "unknown": "Unbekannt",
           "external_spool": "Externe Spule"
+        }
+      },
+      "printwatch_editor": {
+        "general": {
+          "label": "Allgemeine Einstellungen",
+          "title": "Titel",
+          "status": "Druckerstatus",
+          "stage": "Druckphase",
+          "progress": "Druckfortschritt",
+          "remaining_time": "Verbleibende Zeit",
+          "speed_profile": "Druckgeschwindigkeitsprofil"
+        },
+        "camera": {
+          "label": "Kameraeinstellungen",
+          "entity": "Kamera",
+          "refresh_rate": "Aktualisierungsintervall",
+          "hint": {
+            "entity": "Wird für die Live-Kameraanzeige verwendet",
+            "refresh_rate": "Aktualisierungsintervall des Kamerabildes in Sekunden"
+          }
+        },
+        "control": {
+          "label": "Drucksteuerung",
+          "resume": "Fortsetzen-Taste",
+          "pause": "Pause-Taste",
+          "stop": "Stopp-Taste"
+        },
+        "layers": {
+          "label": "Schichten",
+          "current_layer": "Aktuelle Schicht",
+          "total_layers": "Gesamtanzahl der Schichten"
+        },
+        "model": {
+          "label": "Modell",
+          "name": "Name",
+          "preview": "Vorschau",
+          "length": "Länge",
+          "weight": "Gewicht"
+        },
+        "temperature": {
+          "label": "Temperatur",
+          "bed": "Druckbett",
+          "bed_number": "Druckbettsteuerung",
+          "nozzle": "Düse",
+          "nozzle_number": "Düsensteuerung"
+        },
+        "filament": {
+          "label": "Filament",
+          "spools": "Spulen"
+        },
+        "additional": {
+          "label": "Weitere Einstellungen",
+          "chamber_light": "Bauraumbeleuchtung",
+          "fan": "Kühlventilator"
         }
       }
     }

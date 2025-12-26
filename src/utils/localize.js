@@ -176,6 +176,16 @@ export class Localize {
   t(key, params = {}) {
     return this.localize(`ui.card.printwatch.${key}`, params);
   }
+
+  /**
+   * Helper method for edit card strings
+   * @param {string} key - Translation key
+   * @param {Object} params - Parameters for translation
+   * @returns {string} Localized string
+   */
+  e(key, params = {}) {
+    return this.localize(`ui.card.printwatch_editor.${key}`, params);
+  }
 }
 
 // Initialize and export singleton
