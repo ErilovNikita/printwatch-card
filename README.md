@@ -1,11 +1,13 @@
 # PrintWatch Card
-A feature-rich Home Assistant card for monitoring and controlling your P1S 3D printer. Get real-time updates on print progress, temperatures, material status, and more with a sleek, user-friendly interface.
+> A feature-rich Home Assistant card for monitoring and controlling your P1S 3D printer. Get real-time updates on print progress, temperatures, material status, and more with a sleek, user-friendly interface.
 
-### Light Mode 
-![PrintWatch Card Screenshot](assets/light-mode.png)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Latest Release](https://img.shields.io/github/v/release/drkpxl/printwatch-card?label=Latest%20Release)](https://github.com/drkpxl/printwatch-card/releases/latest)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/default)
+[![HACS Validate](https://github.com/drkpxl/printwatch-card/actions/workflows/validate.yaml/badge.svg?branch=main)](https://github.com/drkpxl/printwatch-card/actions/workflows/validate.yaml)
+[![Stars](https://img.shields.io/github/stars/drkpxl/printwatch-card?style=flat)](https://github.com/drkpxl/printwatch-card/stargazers)
+[![Forks](https://img.shields.io/github/forks/drkpxl/printwatch-card?style=flat)](https://github.com/drkpxl/printwatch-card/forks)
 
-### Dark Mode
-![PrintWatch Dark Mode](assets/dark-mode.png)  
 
 ## Features
 - 🎥 Live camera feed
@@ -25,6 +27,14 @@ A feature-rich Home Assistant card for monitoring and controlling your P1S 3D pr
   - English
   - Russian
   - Germany
+  - Dansk
+
+## Screenshots
+### Light Mode 
+![PrintWatch Card Screenshot](assets/light-mode.png)
+
+### Dark Mode
+![PrintWatch Dark Mode](assets/dark-mode.png)  
 
 ## Prerequisites
 - Home Assistant
