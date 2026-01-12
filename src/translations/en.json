@@ -98,7 +98,7 @@
           "refresh_rate": "Refresh Interval",
           "hint": {
             "entity": "Used for live camera preview",
-            "refresh_rate": "Camera image refresh interval in seconds"
+            "refresh_rate": "Camera image refresh interval in milliseconds"
           }
         },
         "control": {
@@ -134,6 +134,22 @@
           "label": "Additional",
           "chamber_light": "Chamber Light",
           "fan": "Cooling Fan"
+        },
+        "editor": {
+          "preset_selection": "Printer Model Preset",
+          "printer_model": "Select your printer model",
+          "reset_to_preset": "Reset to Preset Values",
+          "optional": "optional",
+          "filament_hint": "Select one or more filament/material slot sensors",
+          "visibility": "Display Options",
+          "show_title": "Show card title",
+          "show_camera": "Show camera feed",
+          "show_control": "Show print controls",
+          "show_filament": "Show filament status",
+          "device_discovery": "Auto-Configure from Device",
+          "device_discovery_hint": "Select your printer device from Home Assistant to automatically discover and map all available sensors and controls.",
+          "select_printer_device": "Select Printer Device",
+          "entities_discovered": "Entities automatically discovered from device:"
         }
       }
     }

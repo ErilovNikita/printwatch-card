@@ -134,6 +134,22 @@
           "label": "Yderligere",
           "chamber_light": "Kammerlys",
           "fan": "Køleventilator"
+        },
+        "editor": {
+          "preset_selection": "Printermodelforudsætning",
+          "printer_model": "Vælg din printermodel",
+          "reset_to_preset": "Nulstil til forudsatte værdier",
+          "optional": "valgfrit",
+          "filament_hint": "Vælg en eller flere filament-/materialspol-sensorer",
+          "visibility": "Visningsindstillinger",
+          "show_title": "Vis korttitel",
+          "show_camera": "Vis kameraudlæsning",
+          "show_control": "Vis udskriftskontroller",
+          "show_filament": "Vis filamentstatus",
+          "device_discovery": "Automatisk konfiguration fra enhed",
+          "device_discovery_hint": "Vælg din printerenhed fra Home Assistant for automatisk at opdage og kortlægge alle tilgængelige sensorer og kontrolelementer.",
+          "select_printer_device": "Vælg printerenhed",
+          "entities_discovered": "Enheder opdaget automatisk fra enhed:"
         }
       }
     }

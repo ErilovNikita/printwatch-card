@@ -134,6 +134,22 @@
           "label": "Weitere Einstellungen",
           "chamber_light": "Bauraumbeleuchtung",
           "fan": "Kühlventilator"
+        },
+        "editor": {
+          "preset_selection": "Druckermodell-Voreinstellung",
+          "printer_model": "Wählen Sie Ihr Druckermodell",
+          "reset_to_preset": "Auf Voreinstellungswerte zurücksetzen",
+          "optional": "optional",
+          "filament_hint": "Wählen Sie einen oder mehrere Filament-/Materialspulen-Sensoren",
+          "visibility": "Anzeigeoptionen",
+          "show_title": "Kartentitel anzeigen",
+          "show_camera": "Kamera-Feed anzeigen",
+          "show_control": "Drucksteuerungen anzeigen",
+          "show_filament": "Filament-Status anzeigen",
+          "device_discovery": "Automatisch vom Gerät konfigurieren",
+          "device_discovery_hint": "Wählen Sie Ihr Druckergerät aus Home Assistant, um alle verfügbaren Sensoren und Steuerungen automatisch zu erkennen und zuzuordnen.",
+          "select_printer_device": "Druckergerät auswählen",
+          "entities_discovered": "Entitäten automatisch vom Gerät erkannt:"
         }
       }
     }
