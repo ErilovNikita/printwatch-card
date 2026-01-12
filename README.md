@@ -24,10 +24,10 @@
 - 📷 G-Code preview image (requires HA Bambu Lab plugin update)
 - 🏷️ Display print weight and length details
 - 🌍 Localization support:
-  - English
-  - Russian
-  - Germany
-  - Dansk
+  - 🇺🇸 English
+  - 🇷🇺 Russian
+  - 🇩🇪 Germany
+  - 🇩🇰 Dansk
 
 ## Screenshots
 ### Light Mode 
