@@ -1,13 +1,19 @@
 // src/components/printwatch-card.js
-import { LitElement, html } from 'lit';
-import { cardTemplate } from '../templates/card-template';
-import { cardStyles } from '../styles/card-styles';
-import { formatDuration, formatEndTime } from '../utils/formatters';
-import { isPrinting, isPaused, getAmsSlots, getEntityStates, showElement } from '../utils/state-helpers';
-import { DEFAULT_CAMERA_REFRESH_RATE } from '../constants/config';
-import { localize } from '../utils/localize';
-import handleClick from '../utils/handleClick';
-import './printwatch-card-editor';
+import { LitElement, html } from "lit";
+import { cardTemplate } from "../templates/card-template";
+import { cardStyles } from "../styles/card-styles";
+import { formatDuration, formatEndTime } from "../utils/formatters";
+import {
+  isPrinting,
+  isPaused,
+  getAmsSlots,
+  getEntityStates,
+  showElement,
+} from "../utils/state-helpers";
+import { DEFAULT_CAMERA_REFRESH_RATE } from "../constants/config";
+import { localize } from "../utils/localize";
+import handleClick from "../utils/handleClick";
+import "./printwatch-card-editor";
 
 class PrintWatchCard extends LitElement {
   static get properties() {
@@ -18,7 +24,7 @@ class PrintWatchCard extends LitElement {
       _cameraUpdateInterval: { type: Number },
       _cameraError: { type: Boolean },
       _dialogConfig: { state: true },
-      _confirmDialog: { state: true }
+      _confirmDialog: { state: true },
     };
   }
 
@@ -35,22 +41,40 @@ class PrintWatchCard extends LitElement {
     this._confirmDialog = { open: false };
     this.formatters = {
       formatDuration,
-      formatEndTime
+      formatEndTime,
     };
-    this._hassLang = '';
+    this._hassLang = "";
   }
 
   setConfig(config) {
     if (!config.title) {
-      throw new Error('Please define title in the card configuration.');
+      throw new Error("Please define title in the card configuration.");
     }
     this.config = { ...config };
-    this._cameraUpdateInterval = config.camera.refresh_rate || DEFAULT_CAMERA_REFRESH_RATE;
+
+    // Support both nested (config.camera.refresh_rate) and flat (config.refresh_rate) structures
+    const cameraConfig = this.config.camera || {};
+    this._cameraUpdateInterval =
+      cameraConfig.refresh_rate || DEFAULT_CAMERA_REFRESH_RATE;
   }
 
   isOnline() {
-    const onlineEntity = this.hass?.states[this.config.online];
-    return onlineEntity?.state === 'on';
+    // Support both nested and flat config structures
+    const general = this.config.general || this.config;
+    const onlineEntity = general.online || this.config.online;
+
+    if (!onlineEntity) {
+      // If no explicit online entity defined, check status instead
+      const statusEntity = general.status || this.config.status;
+      if (statusEntity) {
+        const state = this.hass?.states[statusEntity];
+        return state && state.state !== "offline";
+      }
+      return true; // Assume online if no status entity defined
+    }
+
+    const state = this.hass?.states[onlineEntity];
+    return state?.state === "on";
   }
 
   shouldUpdateCamera() {
@@ -71,45 +95,55 @@ class PrintWatchCard extends LitElement {
     this._cameraError = false;
   }
 
-  handlePopup(e, entity, actionConfig = { action: 'more-info' }) {
+  handlePopup(e, entity, actionConfig = { action: "more-info" }) {
     e.stopPropagation();
-    handleClick(this, this.hass, this.config, actionConfig, entity.entity_id || entity);
+    handleClick(
+      this,
+      this.hass,
+      this.config,
+      actionConfig,
+      entity.entity_id || entity
+    );
   }
 
   _toggleLight() {
-    const entityId = this.config?.control?.chamber_light;
+    const control = this.config.control || this.config;
+    const entityId = control.chamber_light;
     if (!entityId) return;
 
     const entity = this.hass.states[entityId];
     if (!entity) return;
 
     // Determine domain (e.g., 'light', 'switch') from entity id
-    const domain = String(entityId).split('.')[0];
-    const serviceAction = entity.state === 'on' ? 'turn_off' : 'turn_on';
+    const domain = String(entityId).split(".")[0];
+    const serviceAction = entity.state === "on" ? "turn_off" : "turn_on";
     this.hass.callService(domain, serviceAction, { entity_id: entityId });
   }
 
   _toggleFan() {
-    const fanEntity = this.hass.states[this.config.control.fan];
+    const control = this.config.control || this.config;
+    const fanEntity = this.hass.states[control.fan];
     if (!fanEntity) return;
 
-    const service = fanEntity.state === 'on' ? 'turn_off' : 'turn_on';
-    this.hass.callService('fan', service, {
-      entity_id: this.config.control.fan,
+    const service = fanEntity.state === "on" ? "turn_off" : "turn_on";
+    this.hass.callService("fan", service, {
+      entity_id: control.fan,
     });
   }
 
   updated(changedProps) {
     super.updated(changedProps);
-    if (changedProps.has('hass')) {
+    if (changedProps.has("hass")) {
       // Detect language changes from Home Assistant and trigger re-render
-      const rawLang = this.hass?.locale?.language || this.hass?.language || '';
-      const newLang = rawLang ? String(rawLang).split(/[-_]/)[0].toLowerCase() : '';
+      const rawLang = this.hass?.locale?.language || this.hass?.language || "";
+      const newLang = rawLang
+        ? String(rawLang).split(/[-_]/)[0].toLowerCase()
+        : "";
       if (newLang && newLang !== this._hassLang) {
         this._hassLang = newLang;
         // Force update so templates that call `localize.t()` re-evaluate
         this.requestUpdate();
-        console.debug('printwatch-card: locale changed to', newLang);
+        console.debug("printwatch-card: locale changed to", newLang);
       }
 
       if (this.shouldUpdateCamera()) {
@@ -126,7 +160,7 @@ class PrintWatchCard extends LitElement {
     this._lastCameraUpdate = Date.now();
 
     const timestamp = new Date().getTime();
-    const cameraImg = this.shadowRoot?.querySelector('.camera-feed img');
+    const cameraImg = this.shadowRoot?.querySelector(".camera-feed img");
     if (cameraImg) {
       const cameraEntity = this.hass.states[this.config.camera.entity];
       if (cameraEntity?.attributes?.entity_picture) {
@@ -134,7 +168,7 @@ class PrintWatchCard extends LitElement {
       }
     }
 
-    const coverImg = this.shadowRoot?.querySelector('.preview-image img');
+    const coverImg = this.shadowRoot?.querySelector(".preview-image img");
     if (coverImg) {
       const coverEntity = this.hass.states[this.config.model.preview];
       if (coverEntity?.attributes?.entity_picture) {
@@ -146,22 +180,22 @@ class PrintWatchCard extends LitElement {
   handlePauseDialog() {
     this._confirmDialog = {
       open: true,
-      type: 'pause',
-      title: localize.t('dialogs.pause.title'),
-      message: localize.t('dialogs.pause.message'),
+      type: "pause",
+      title: localize.t("dialogs.pause.title"),
+      message: localize.t("dialogs.pause.message"),
       onConfirm: () => {
         const entity = isPaused(this.hass, this.config)
           ? this.config.control.resume_button
           : this.config.control.pause_button;
 
-        this.hass.callService('button', 'press', {
-          entity_id: entity
+        this.hass.callService("button", "press", {
+          entity_id: entity,
         });
         this._confirmDialog = { open: false };
       },
       onCancel: () => {
         this._confirmDialog = { open: false };
-      }
+      },
     };
     this.requestUpdate();
   }
@@ -169,18 +203,18 @@ class PrintWatchCard extends LitElement {
   handleStopDialog() {
     this._confirmDialog = {
       open: true,
-      type: 'stop',
-      title: localize.t('dialogs.stop.title'),
-      message: localize.t('dialogs.stop.message'),
+      type: "stop",
+      title: localize.t("dialogs.stop.title"),
+      message: localize.t("dialogs.stop.message"),
       onConfirm: () => {
-        this.hass.callService('button', 'press', {
-          entity_id: this.config.control.stop_button
+        this.hass.callService("button", "press", {
+          entity_id: this.config.control.stop_button,
         });
         this._confirmDialog = { open: false };
       },
       onCancel: () => {
         this._confirmDialog = { open: false };
-      }
+      },
     };
     this.requestUpdate();
   }
@@ -216,7 +250,8 @@ class PrintWatchCard extends LitElement {
       setDialogConfig,
       handlePauseDialog: () => this.handlePauseDialog(),
       handleStopDialog: () => this.handleStopDialog(),
-      handlePopup: (e, entity, actionConfig = { action: 'more-info' }) => this.handlePopup(e, entity, actionConfig),
+      handlePopup: (e, entity, actionConfig = { action: "more-info" }) =>
+        this.handlePopup(e, entity, actionConfig),
     });
   }
 
@@ -226,18 +261,17 @@ class PrintWatchCard extends LitElement {
   }
 
   static getConfigElement() {
-    return document.createElement('printwatch-card-editor');
+    return document.createElement("printwatch-card-editor");
   }
-
 
   static getStubConfig() {
     return {
-      title: 'My lover printer',
+      title: "My lover printer",
       camera: {},
     };
   }
 }
 
-customElements.define('printwatch-card', PrintWatchCard);
+customElements.define("printwatch-card", PrintWatchCard);
 
 export default PrintWatchCard;
