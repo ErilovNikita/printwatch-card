@@ -89,8 +89,7 @@ export const PRINTER_PRESETS = {
   },
   "elegoo-centauri-carbon": {
     name: "Elegoo Centauri Carbon",
-    description:
-      "Elegoo Centauri Carbon resin printer with full sensor support",
+    description: "Elegoo Centauri Carbon printer with full sensor support",
     entities: {
       general: {
         status: "sensor.centauri_carbon_current_status",

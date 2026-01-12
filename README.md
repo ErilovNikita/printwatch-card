@@ -5,7 +5,7 @@
 Supports multiple 3D printer models including:
 
 - **Bambu Lab P1S** (native support via ha-bambulab integration)
-- **Elegoo Centauri Carbon** (resin printer)
+- **Elegoo Centauri Carbon**
 - Any custom 3D printer with Home Assistant sensors
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -91,7 +91,7 @@ The card is now fully configurable through Home Assistant's Dashboard Editor UI!
 2. Click "Edit" on the card
 3. Select your printer model from the dropdown:
    - **Bambu Lab P1S** - Auto-configures common entities for Bambu Lab printers
-   - **Elegoo Centauri Carbon** - Optimized for Elegoo resin printers
+   - **Elegoo Centauri Carbon** - Optimized for Elegoo printers
    - **Custom** - Define your own entity mappings
 4. Select your printer's entities using the entity pickers
 5. Optionally customize visibility options
@@ -99,75 +99,6 @@ The card is now fully configurable through Home Assistant's Dashboard Editor UI!
 ### YAML Configuration (Advanced)
 
 All configuration can be done through the GUI, but YAML mode is still supported for advanced users:
-
-#### Bambu Lab P1S Example
-
-```yaml
-type: custom:printwatch-card
-printer_preset: bambu-lab-p1s
-title: My Bambu Lab P1S
-general:
-  status: sensor.bambu_lab_status
-  stage: sensor.bambu_lab_stage
-  progress: sensor.bambu_lab_progress
-  remaining_time: sensor.bambu_lab_remaining_time
-  speed_profile: select.bambu_lab_speed_profile
-camera:
-  entity: camera.bambu_lab_camera
-  refresh_rate: 1000
-control:
-  pause_button: button.bambu_lab_pause
-  resume_button: button.bambu_lab_resume
-  stop_button: button.bambu_lab_stop
-  chamber_light: light.bambu_lab_chamber_light
-  fan: fan.bambu_lab_cooling_fan
-model:
-  name: sensor.bambu_lab_print_name
-  preview: image.bambu_lab_preview
-  length: sensor.bambu_lab_print_length
-  weight: sensor.bambu_lab_print_weight
-temperature:
-  bed: sensor.bambu_lab_bed_temperature
-  bed_number: number.bambu_lab_bed_target_temperature
-  nozzle: sensor.bambu_lab_nozzle_temperature
-  nozzle_number: number.bambu_lab_nozzle_target_temperature
-filament:
-  ams_slots:
-    - sensor.bambu_lab_ams_slot_1
-    - sensor.bambu_lab_ams_slot_2
-    - sensor.bambu_lab_ams_slot_3
-    - sensor.bambu_lab_ams_slot_4
-```
-
-#### Elegoo Centauri Carbon Example
-
-```yaml
-type: custom:printwatch-card
-printer_preset: elegoo-centauri-carbon
-title: My Elegoo Centauri Carbon
-general:
-  status: sensor.elegoo_status
-  stage: sensor.elegoo_stage
-  progress: sensor.elegoo_progress
-  remaining_time: sensor.elegoo_remaining_time
-camera:
-  entity: camera.elegoo_camera
-  refresh_rate: 2000
-control:
-  pause_button: button.elegoo_pause
-  resume_button: button.elegoo_resume
-  stop_button: button.elegoo_stop
-model:
-  name: sensor.elegoo_print_name
-  preview: image.elegoo_preview
-temperature:
-  nozzle: sensor.elegoo_tank_temperature
-filament:
-  ams_slots:
-    - sensor.elegoo_resin_tank
-```
-
-#### Custom Printer Configuration
 
 ```yaml
 type: custom:printwatch-card
