@@ -49,6 +49,7 @@ class PrintWatchCard extends LitElement {
   }
 
   isOnline() {
+    if (!this.config.online) return true;
     const onlineEntity = this.hass?.states[this.config.online];
     return onlineEntity?.state === 'on';
   }
