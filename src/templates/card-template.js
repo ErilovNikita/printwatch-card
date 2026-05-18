@@ -51,7 +51,7 @@ export const cardTemplate = (context) => {
   };
 
   return html`
-    <div class="card">
+    <ha-card class="card">
       ${headerTemplate(entities, show, controls)}
       ${show.camera === true ? cameraFeedTemplate(cameraProps) : ''}
       ${printStatusTemplate(entities, {
@@ -65,6 +65,6 @@ export const cardTemplate = (context) => {
       ${show.ams_slots === true ? materialSlotsTemplate(amsSlots) : ''}
       ${temperatureDialogTemplate(dialogConfig, hass)}
       ${confirmDialogTemplate(confirmDialog)}
-    </div>
+    </ha-card>
   `;
 };
