@@ -15,7 +15,6 @@ class PrintwatchCardEditor extends LitElement {
         .section {
             margin-bottom: 24px;
             border-radius: 12px;
-            background: var(--card-background-color);
             box-shadow: var(--ha-card-box-shadow);
         }
 
