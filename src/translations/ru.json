@@ -79,7 +79,9 @@
         "materials": {
           "empty": "Пусто",
           "unknown": "Неизвестно",
-          "external_spool": "Внешняя катушка"
+          "external_spool": "Внешняя катушка",
+          "temperature": "Температура",
+          "humidity": "Влажность"
         }
       },
       "printwatch_editor": {

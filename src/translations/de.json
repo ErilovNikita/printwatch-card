@@ -79,7 +79,9 @@
         "materials": {
           "empty": "Leer",
           "unknown": "Unbekannt",
-          "external_spool": "Externe Spule"
+          "external_spool": "Externe Spule",
+          "temperature": "Temperatur",
+          "humidity": "Feuchtigkeit"
         }
       },
       "printwatch_editor": {

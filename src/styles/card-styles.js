@@ -232,7 +232,7 @@ export const cardStyles = css`
   }
 
   /* Temperature Display */
-    .temperatures {
+  .temperatures {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -360,10 +360,31 @@ export const cardStyles = css`
                 0 0 0 4px var(--primary-color);
   }
 
-  .material-type,
-  .materials-specs {
+  .material-type {
     font-size: 12px;
     color: var(--primary-text-color);
     text-align: center;
+  }
+
+  .materials-specs {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .materials-specs > .specs-item {
+    text-align: center;
+    color: var(--primary-text-color);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .materials-specs > .specs-item .value {
+    font-size: 20px;
+    font-weight: 500;
   }
 `;
