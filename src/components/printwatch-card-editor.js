@@ -306,7 +306,7 @@ class PrintwatchCardEditor extends LitElement {
                 <ha-entity-picker
                     label="${localize.e('filament.temperature')}"
                     .hass=${this.hass}
-                    .value=${amsConfig.ams.temperature ?? ''}
+                    .value=${amsConfig.temperature ?? ''}
                     .includeDomains=${['sensor']}
                     allow-custom-entity
                     @value-changed=${e => this._updateNested('temperature.temperature', e.detail.value ?? e.target.value)}
@@ -315,7 +315,7 @@ class PrintwatchCardEditor extends LitElement {
                 <ha-entity-picker
                     label="${localize.e('filament.humidity')}"
                     .hass=${this.hass}
-                    .value=${amsConfig.ams.humidity ?? ''}
+                    .value=${amsConfig.humidity ?? ''}
                     .includeDomains=${['sensor']}
                     allow-custom-entity
                     @value-changed=${e => this._updateNested('temperature.humidity', e.detail.value ?? e.target.value)}
