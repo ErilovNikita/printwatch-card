@@ -229,14 +229,6 @@ class PrintWatchCard extends LitElement {
   static getConfigElement() {
     return document.createElement('printwatch-card-editor');
   }
-
-
-  static getStubConfig() {
-    return {
-      title: 'My lover printer',
-      camera: {},
-    };
-  }
 }
 
 customElements.define('printwatch-card', PrintWatchCard);

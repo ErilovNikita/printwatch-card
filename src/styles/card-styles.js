@@ -360,7 +360,8 @@ export const cardStyles = css`
                 0 0 0 4px var(--primary-color);
   }
 
-  .material-type {
+  .material-type,
+  .materials-specs {
     font-size: 12px;
     color: var(--primary-text-color);
     text-align: center;
