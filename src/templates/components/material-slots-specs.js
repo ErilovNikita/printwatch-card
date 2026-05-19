@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { localize } from '../../utils/localize';
 
-export const materialSlotsSpecsTemplate = (entities) => {
+export const materialSlotsSpecsTemplate = (entities, hass) => {
 
   const tempUnit = hass.states[entities.ams_temp]?.attributes?.unit_of_measurement || '°C';
   const humUnit = hass.states[entities.ams_humidity]?.attributes?.unit_of_measurement || '%';

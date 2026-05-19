@@ -321,7 +321,7 @@ class PrintwatchCardEditor extends LitElement {
                     @value-changed=${e => this._updateNested('temperature.humidity', e.detail.value ?? e.target.value)}
                 ></ha-entity-picker>
 
-                                <ha-form
+                <ha-form
                     .hass=${this.hass}
                     label="${localize.e('filament.spools')}"
                     .data=${config}
