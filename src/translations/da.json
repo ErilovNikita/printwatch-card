@@ -130,7 +130,9 @@
         },
         "filament": {
           "label": "Filament",
-          "spools": "Spoler"
+          "spools": "Spoler",
+          "temperature": "Температура AMS",
+          "humidity": "Влажность AMS"
         },
         "additional": {
           "label": "Yderligere",

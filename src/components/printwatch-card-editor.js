@@ -83,7 +83,8 @@ class PrintwatchCardEditor extends LitElement {
         const layersConfig = this._config?.layers || {};
         const temperatureConfig = this._config?.temperature || {};
         const modelConfig = this._config?.model || {};
-        const amsConfig = this._config?.ams_slots || [];
+        const amsSlots = this._config?.ams_slots || [];
+        const amsConfig = this._config?.ams || {};
 
         return html`
             <div class="section">
@@ -302,7 +303,25 @@ class PrintwatchCardEditor extends LitElement {
             <div class="section">
                 <div class="section-title">${localize.e('filament.label')}</div>
 
-                <ha-form
+                <ha-entity-picker
+                    label="${localize.e('filament.temperature')}"
+                    .hass=${this.hass}
+                    .value=${amsConfig.ams.temperature ?? ''}
+                    .includeDomains=${['sensor']}
+                    allow-custom-entity
+                    @value-changed=${e => this._updateNested('temperature.temperature', e.detail.value ?? e.target.value)}
+                ></ha-entity-picker>
+
+                <ha-entity-picker
+                    label="${localize.e('filament.humidity')}"
+                    .hass=${this.hass}
+                    .value=${amsConfig.ams.humidity ?? ''}
+                    .includeDomains=${['sensor']}
+                    allow-custom-entity
+                    @value-changed=${e => this._updateNested('temperature.humidity', e.detail.value ?? e.target.value)}
+                ></ha-entity-picker>
+
+                                <ha-form
                     .hass=${this.hass}
                     label="${localize.e('filament.spools')}"
                     .data=${config}

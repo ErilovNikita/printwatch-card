@@ -130,7 +130,9 @@
         },
         "filament": {
           "label": "Филамент",
-          "spools": "Катушки"
+          "spools": "Катушки",
+          "temperature": "Температура AMS",
+          "humidity": "Влажность AMS"
         },
         "additional": {
           "label": "Дополнительно",

@@ -130,7 +130,9 @@
         },
         "filament": {
           "label": "Filament",
-          "spools": "Spulen"
+          "spools": "Spulen",
+          "temperature": "Temperatur AMS",
+          "humidity": "Feuchtigkeit AMS"
         },
         "additional": {
           "label": "Weitere Einstellungen",
