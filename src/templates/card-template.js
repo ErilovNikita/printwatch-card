@@ -5,6 +5,7 @@ import { cameraFeedTemplate } from './components/camera-feed';
 import { printStatusTemplate } from './components/print-status';
 import { temperatureDisplayTemplate } from './components/temperature-display';
 import { materialSlotsTemplate } from './components/material-slots';
+import { materialSlotsSpecsTemplate } from './components/material-slots-specs';
 import { temperatureDialogTemplate } from './components/temperature-controls';
 import { confirmDialogTemplate } from './components/confirm-dialog';
 
@@ -62,6 +63,7 @@ export const cardTemplate = (context) => {
         handlePopup
       })}
       ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
+      ${materialSlotsSpecsTemplate()}
       ${show.ams_slots === true ? materialSlotsTemplate(amsSlots) : ''}
       ${temperatureDialogTemplate(dialogConfig, hass)}
       ${confirmDialogTemplate(confirmDialog)}

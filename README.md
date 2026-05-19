@@ -14,7 +14,7 @@
   - Uses native HA streaming for `camera.*` entities (e.g. Generic Camera)
   - Uses configurable refresh rate for `image.*` entities
 - 📊 Print progress tracking with layer count and estimated completion time
-- 🎨 AMS/Material status visualization including current filament
+- 🎨 AMS/Material status visualization including current filament and temperature & humidity monitoring
 - 💡 Quick controls for chamber light and auxiliary fan
 - ⏯️ Print control buttons (pause/resume/stop) with [confirmation dialogs](assets/pause.png)
 - 🎛️ Speed profile monitoring and control
@@ -100,6 +100,9 @@ model:
     preview: image.a1_cover_image
     weight: sensor.a1_print_weight
     length: sensor.a1_print_length
+ams: 
+    temperature: sensor.a1_ams_temperature
+    humidity: sensor.a1_ams_humidity
 ams_slots:
     - sensor.a1_externalspool_external_spool
     - sensor.a1_externalspool_external_spool

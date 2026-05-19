@@ -104,6 +104,7 @@ export const getEntityStates = (hass, config) => {
   const camera = config?.camera || {};
   const layers = config?.layers || {};
   const temperature = config?.temperature || {};
+  const ams = config?.ams || {};
   const model = config?.model || {};
 
   return {
@@ -138,6 +139,9 @@ export const getEntityStates = (hass, config) => {
     nozzle_target_temp_entity: temperature.nozzle_number,
     bed_temp: parseFloat(getState(temperature.bed)),
     nozzle_temp: parseFloat(getState(temperature.nozzle)),
+
+    ams_temp: parseFloat(getState(ams.temperature)),
+    ams_humidity: parseFloat(getState(ams.humidity)),
 
     cover_image_entity: model.preview,
     print_weight_entity: parseInt(getState(model.weight)),
