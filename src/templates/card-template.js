@@ -63,7 +63,7 @@ export const cardTemplate = (context) => {
         handlePopup
       })}
       ${temperatureDisplayTemplate(entities, hass, dialogConfig, setDialogConfig)}
-      ${materialSlotsSpecsTemplate()}
+      ${materialSlotsSpecsTemplate(entities)}
       ${show.ams_slots === true ? materialSlotsTemplate(amsSlots) : ''}
       ${temperatureDialogTemplate(dialogConfig, hass)}
       ${confirmDialogTemplate(confirmDialog)}
